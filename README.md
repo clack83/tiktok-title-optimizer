@@ -96,17 +96,44 @@
    - Windows：右键 `.env.example` → 复制 → 粘贴 → 改名为 `.env`
    - Mac：`cp .env.example .env`
 
-2. 用记事本（Windows）或文本编辑（Mac）打开 `.env` 文件，**只需修改一行**：
+2. 用记事本（Windows）或文本编辑（Mac）打开 `.env` 文件，完整的配置内容如下：
 
+```bash
+# ========== 数据库配置 ==========
+# 以下保持默认值即可，Docker 会自动创建对应的数据库和用户
+POSTGRES_USER=tiktok_optimizer
+POSTGRES_PASSWORD=tiktok_optimizer
+POSTGRES_DB=tiktok_optimizer
+DATABASE_URL=postgresql://tiktok_optimizer:tiktok_optimizer@postgres:5432/tiktok_optimizer
+
+# ========== Redis 配置 ==========
+# 保持默认值，不需要修改
+REDIS_URL=redis://redis:6379/0
+
+# ========== JWT 密钥配置 ==========
+# ⚠️ 强烈建议修改！随便打一串乱码，越长越安全
+# 这个密钥用于加密用户的登录凭证，泄露后别人可以伪造登录
+SECRET_KEY=change-me-to-a-random-secret-key
+JWT_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60       # 登录有效时间（分钟），60=1小时后需重新登录
+REFRESH_TOKEN_EXPIRE_DAYS=30         # 登录刷新有效期（天），30天内可以自动续登录
+
+# ========== DeepSeek API 配置 ==========
+# ⚠️ 必须修改！去 platform.deepseek.com 注册充值后获取
+# 不填这一项的话，AI 优化功能无法使用
+DEEPSEEK_API_KEY=your-deepseek-api-key    # ← 把这里改成你的真实 Key
+DEEPSEEK_BASE_URL=https://api.deepseek.com   # API 地址，不需要改
+DEEPSEEK_MODEL=deepseek-chat               # 使用的模型，不需要改
+
+# ========== 应用配置 ==========
+# 保持默认值
+APP_ENV=development   # 环境：development=开发模式，production=生产模式
+DEBUG=true            # 调试开关，开发时保持 true
 ```
-# 把这一行
-DEEPSEEK_API_KEY=your-deepseek-api-key
 
-# 改成你的真实 Key，例如：
-DEEPSEEK_API_KEY=sk-abc123def456...
-```
-
-> 📝 其他配置项用默认值就行，不需要修改。
+> 📝 **对于小白用户：你只需要改两行——**
+> 1. `DEEPSEEK_API_KEY=你的key`（必改）
+> 2. `SECRET_KEY=随便打一串乱码`（建议改）
 
 ### 第4步：启动项目
 
@@ -167,21 +194,41 @@ cd tiktok-title-optimizer
 cp .env.example .env
 ```
 
-编辑 `.env` 文件，填写以下必填项：
+编辑 `.env` 文件。完整配置如下，**本地开发只需要改一个地方** —— 把 `DATABASE_URL` 里的 `postgres` 改成 `localhost`：
 
-```
-# 数据库（本地开发用）
+```bash
+# ========== 数据库配置 ==========
+POSTGRES_USER=tiktok_optimizer
+POSTGRES_PASSWORD=tiktok_optimizer
+POSTGRES_DB=tiktok_optimizer
+# ⚠️ 注意：本地运行时要把 postgres 改成 localhost
 DATABASE_URL=postgresql://tiktok_optimizer:tiktok_optimizer@localhost:5432/tiktok_optimizer
 
-# Redis
+# ========== Redis 配置 ==========
+# 本地运行时把 redis 改成 localhost
 REDIS_URL=redis://localhost:6379/0
 
-# JWT（随便改一个复杂的字符串）
-SECRET_KEY=随便打一串乱码，越长越好
+# ========== JWT 密钥配置 ==========
+# ⚠️ 建议修改！随便打一串乱码
+SECRET_KEY=change-me-to-a-random-secret-key
+JWT_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60       # 登录有效时间（分钟）
+REFRESH_TOKEN_EXPIRE_DAYS=30         # 登录刷新有效期（天）
 
-# DeepSeek API（必填！去 platform.deepseek.com 申请）
-DEEPSEEK_API_KEY=sk-你的真实key
+# ========== DeepSeek API 配置 ==========
+# ⚠️ 必须改成你的真实 Key！去 platform.deepseek.com 申请
+DEEPSEEK_API_KEY=your-deepseek-api-key
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+DEEPSEEK_MODEL=deepseek-chat
+
+# ========== 应用配置 ==========
+APP_ENV=development
+DEBUG=true
 ```
+
+> 📝 **本地开发 vs Docker 部署的区别：**
+> - Docker：`DATABASE_URL` 里写 `postgres`，`REDIS_URL` 里写 `redis`
+> - 本地：`DATABASE_URL` 里写 `localhost`，`REDIS_URL` 里写 `localhost`
 
 ### 3. 启动后端
 
