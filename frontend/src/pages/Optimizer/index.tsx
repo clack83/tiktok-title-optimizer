@@ -53,7 +53,7 @@ export default function OptimizerPage() {
   useEffect(() => {
     api.get('/categories').then(({ data }) => {
       setCategoriesRaw(data)
-      const opts = [{ value: '', label: '不选择分类' }]
+      const opts: Array<{ value: string; label: string; seedCount?: number; seedPreview?: string[] }> = [{ value: '', label: '不选择分类' }]
       data.forEach((c: any) => {
         const icon = ICON_MAP[c.icon] || '📌'
         const seedInfo = c.seed_count > 0 ? ` [${c.seed_count}条参考]` : ''
