@@ -1,0 +1,20 @@
+schema: spec-driven
+
+# Project context
+context: |
+  Tech stack: Python 3.11+, FastAPI, React 18 + TypeScript, PostgreSQL, Redis, Celery
+  We use conventional commits
+  Domain: 抖音 (TikTok) 内容创作工具，AI 标题优化
+  Language: Chinese (用户界面), English (代码和文档)
+  代码风格: PEP 8 (Python), Prettier (TypeScript)
+  项目采用多 Agent 协作开发模式，团队包含 architect、backend-dev、frontend-dev、algorithm-engineer、qa-engineer、devops-engineer
+
+# Per-artifact rules
+rules:
+  proposal:
+    - 提案必须包含架构组件图和各 Agent 分工
+    - 中文描述功能和需求，英文写技术细节
+  tasks:
+    - 按 Agent 角色拆分任务
+    - 每个任务标注负责的 Agent 和预估工时
+    - 独立任务标记为可并行执行

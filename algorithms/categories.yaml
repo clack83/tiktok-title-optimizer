@@ -1,0 +1,136 @@
+categories:
+  游戏:
+    name: "游戏"
+    icon: "gamepad"
+    description: "手游/端游攻略、操作技巧、游戏资讯"
+    audience: "18-30岁男性为主，追求技术和娱乐，喜欢挑战和成就感"
+    context_keywords: ["攻略", "操作", "通关", "上分", "新皮肤", "技巧", "教学", "王者荣耀", "吃鸡", "原神"]
+    hook_patterns:
+      - "学会这招直接{action}"
+      - "90%的玩家不知道{secret}"
+      - "{number}个{character}你必须知道的技巧"
+      - "新版本{character}直接起飞"
+      - "这是我见过最离谱的操作"
+    taboos: ["虚假宣传", "外挂相关", "代练广告"]
+
+  生活:
+    name: "生活"
+    icon: "home"
+    description: "日常生活妙招、家居收纳、实用技巧"
+    audience: "25-45岁女性为主，关注生活品质和实用技巧"
+    context_keywords: ["妙招", "收纳", "清洁", "改造", "省钱", "实用", "好物", "神器", "家居"]
+    hook_patterns:
+      - "自从学会这招，{result}"
+      - "用了{number}年的方法竟然是错的"
+      - "{number}个小妙招，让你的家{situation}"
+      - "超市里{number}元的好东西，90%的人不知道"
+    taboos: ["虚假功效", "危险操作"]
+
+  旅行:
+    name: "旅行"
+    icon: "compass"
+    description: "旅游攻略、打卡地推荐、旅行体验分享"
+    audience: "20-35岁，有消费意愿的年轻人，喜欢探索和分享"
+    context_keywords: ["攻略", "打卡", "景点", "民宿", "机票", "避坑", "穷游", "自由行", "必去"]
+    hook_patterns:
+      - "去了{place}才知道，什么叫真正的{something}"
+      - "{number}元玩转{place}，超详细攻略"
+      - "99%的人来{place}都错过了这里"
+      - "{place}最全避坑指南，建议收藏"
+      - "本地人都不一定知道的{number}个{place}秘密"
+    taboos: ["虚假景点", "误导性攻略"]
+
+  婚恋:
+    name: "婚恋"
+    icon: "heart"
+    description: "恋爱技巧、婚姻经营、情感分析"
+    audience: "20-40岁，关注感情生活的男女"
+    context_keywords: ["恋爱", "分手", "复合", "相亲", "婚姻", "出轨", "脱单", "男朋友", "女朋友", "彩礼"]
+    hook_patterns:
+      - "TA这样对你说明{insight}"
+      - "{number}个信号说明TA{conclusion}"
+      - "交往{number}年才知道的真相"
+      - "过来人的血泪教训：{lesson}"
+      - "如果你的另一半{situation}，请一定要{action}"
+    taboos: ["性别对立", "极端言论", "隐私泄露"]
+
+  美食:
+    name: "美食"
+    icon: "fire"
+    description: "美食制作教程、探店测评、食材科普"
+    audience: "全年龄段，关注美食制作和探店体验"
+    context_keywords: ["教程", "食谱", "探店", "打卡", "早餐", "甜点", "减脂餐", "家常菜", "下饭菜"]
+    hook_patterns:
+      - "{number}分钟搞定一道{cuisine}"
+      - "比外面卖还好吃的{cuisine}秘诀"
+      - "自从学会这个{cuisine}，再也不去{place}了"
+      - "这道{cuisine}，我家一周吃{number}次"
+      - "手把手教你做{cuisine}，一次成功"
+    taboos: ["食品安全虚假信息", "违规添加剂"]
+
+  科技:
+    name: "科技"
+    icon: "laptop"
+    description: "数码评测、科技资讯、产品对比"
+    audience: "20-35岁男性为主，科技爱好者，追求性价比"
+    context_keywords: ["评测", "对比", "开箱", "参数", "性价比", "旗舰", "新品", "华为", "苹果", "小米"]
+    hook_patterns:
+      - "{number}元买到的{product}，到底值不值"
+      - "{product_1}和{product_2}怎么选？看这{number}点就够"
+      - "用了{number}个月{product}，我劝你{action}"
+      - "今年最值得买的{number}款{product}"
+      - "{product}的{number}个隐藏功能，你一定不知道"
+    taboos: ["虚假参数", "恶意对比"]
+
+  职场:
+    name: "职场"
+    icon: "briefcase"
+    description: "职场技能、效率工具、薪资谈判、职场社交"
+    audience: "22-40岁职场人士，关注晋升和效率提升"
+    context_keywords: ["跳槽", "涨薪", "面试", "效率", "副业", "裁员", "简历", "Excel", "PPT", "加班"]
+    hook_patterns:
+      - "做了{number}年才知道的职场真理"
+      - "{number}个让你效率翻倍的{skill}技巧"
+      - "面试被问{situation}，这样回答直接通过"
+      - "同事不会告诉你的{number}个生存法则"
+      - "离职前一定要做的{number}件事"
+    taboos: ["违规操作", "泄露公司机密", "制造焦虑"]
+
+  美妆:
+    name: "美妆"
+    icon: "experiment"
+    description: "化妆教程、护肤品测评、变美技巧"
+    audience: "18-35岁女性为主，关注变美和护肤"
+    context_keywords: ["化妆", "护肤", "口红", "粉底", "眼影", "美白", "防晒", "变美", "素颜", "新手"]
+    hook_patterns:
+      - "化妆{number}年的血泪教训"
+      - "这个{product}效果太绝了，用完直接{situation}"
+      - "{number}个新手化妆误区，你中了几个"
+      - "别再{action}了，正确方法是这样的"
+    taboos: ["虚假功效", "医疗宣称"]
+
+  健身:
+    name: "健身"
+    icon: "dashboard"
+    description: "健身教程、饮食计划、减脂增肌"
+    audience: "18-35岁关注身材管理的男女"
+    context_keywords: ["减脂", "增肌", "瘦身", "健身", "翘臀", "腹肌", "饮食", "有氧", "拉伸", "体态"]
+    hook_patterns:
+      - "坚持{number}天{action}，身体变化惊人"
+      - "{number}个动作练出{something}，在家就能做"
+      - "别再{action}了，这才是正确的{something}方法"
+      - "我从{weight_1}减到{weight_2}，只做了{number}件事"
+    taboos: ["虚假效果", "危险动作", "极端饮食"]
+
+  教育:
+    name: "教育"
+    icon: "book"
+    description: "考试技巧、学习效率、知识科普"
+    audience: "学生及家长，关注学习和考试"
+    context_keywords: ["考试", "学习", "背书", "提分", "高考", "考研", "考证", "英语", "记忆", "方法"]
+    hook_patterns:
+      - "{number}个学霸不会告诉你的学习方法"
+      - "用这个方法{action}，效率提升{number}倍"
+      - "考前{number}天这样做，至少多拿{number}分"
+      - "为什么有人学{number}小时顶你学{something}"
+    taboos: ["作弊方法", "虚假效果"]
