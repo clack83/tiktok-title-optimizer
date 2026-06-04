@@ -2,10 +2,14 @@ from celery import Celery, Task
 
 from app.core.config import settings
 
+broker_url = settings.redis_url
+if broker_url.startswith("rediss://"):
+    broker_url = broker_url + "?ssl_cert_reqs=CERT_NONE"
+
 celery_app = Celery(
     "tiktok_optimizer",
-    broker=settings.redis_url,
-    backend=settings.redis_url,
+    broker=broker_url,
+    backend=broker_url,
 )
 
 celery_app.conf.update(
